@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-2">
+        <input type="text" class="form-control" ng-model="search" placeholder="search">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label ng-click="personTable.toggleOrder('firstName')">First Name</label>
+    </div>
+    <div class="col-md-2">
+        <label ng-click="personTable.toggleOrder('lastName')">Last Name</label>
+    </div>
+    <div class="col-md-2">
+        <label ng-click="personTable.toggleOrder('phoneNumber')">Phone Number</label>
+    </div>
+    <div class="col-md-2">
+        <label ng-click="personTable.toggleOrder('state')">State</label>
+    </div>
+    <div class="col-md-2">
+        <label>Gender</label>
+    </div>
+    <!--<div class="col-md-2">
+        <label>Car(s)</label>
+    </div>-->
+</div>
+<div class="row" ng-repeat="person in personArray | filter:search | orderBy:personTable.sortBy:personTable.sortOrder">
+    <div class="col-md-2">
+        {{person.firstName}}
+    </div>
+    <div class="col-md-2">
+        {{person.lastName}}
+    </div>
+    <div class="col-md-2">
+        {{person.phoneNumber}}
+    </div>
+    <div class="col-md-2">
+        {{person.state}}
+    </div>
+    <div class="col-md-2">
+        {{person.gender}}
+    </div>
+<!--
+    <div class="col-md-2">
+        {{person.cars}}
+    </div>
+-->
+</div>
