@@ -3,14 +3,14 @@ angular.module('appContacts')
     .controller('personCtrl', ['$scope', function($scope){
     
         $scope.personModel = {
+            entryNum: "1",
             firstName:"",
             lastName:"",
             phoneNumber:"",
             state:"",
             gender:"",
-            cars:"",
         };
-        
+                
         /*$scope.personModel.firstName = "";
         $scope.personModel.lastName = "";
         $scope.personModel.phoneNumber = "";
@@ -59,14 +59,28 @@ angular.module('appContacts')
         $scope.personForm = {
             addPerson:function() {
                 var personObj = {
+                    entryNum: $scope.personModel.entryNum,
                     firstName: $scope.personModel.firstName,
                     lastName: $scope.personModel.lastName,
                     phoneNumber: $scope.personModel.phoneNumber,
                     state: $scope.personModel.state,
-                    gender: $scope.personModel.gender,
-//                    cars: $scope.personModel.cars;
+                    gender: $scope.personModel.gender
                 };
                 $scope.personArray.push(personObj);
+                $scope.personModel.entryNum++;
+            }
+        }
+        
+        $scope.personToggle = {
+            sortBy: 'firstName',
+            sortOrder: false,
+            toggleColumn: function(columnName) {
+                if($scope.personToggle.sortBy != columnName) {
+                    $scope.personToggle.sortBy = columnName;
+                    $scope.personToggle.sortOrder = false;
+                } else {
+                    $scope.personToggle.sortOrder = !$scope.personToggle.sortOrder;
+                }
             }
         }
         

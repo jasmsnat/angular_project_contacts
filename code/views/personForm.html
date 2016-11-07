@@ -1,4 +1,7 @@
 <div class="row">
+    <input type="hidden" ng-model="personModel.id">
+</div>
+<div class="row">
     <div class="col-md-2">
         <label>First Name:</label>
     </div>
@@ -92,20 +95,9 @@
         <input type="radio" value="Female" ng-model="personModel.gender"> Female
     </div>
 </div>
-<!--<div class="row">
-    <div class="col-md-2">
-        <label>Car(s)</label>
-    </div>
-    <div class="col-md-4">
-        <input type="checkbox" value="BMW" ng-model="personModel.cars"> BMW
-        <input type="checkbox" value="Jeep" ng-model="personModel.cars"> Jeep
-        <input type="checkbox" value="Dodge" ng-model="personModel.cars"> Dodge
-        <input type="checkbox" value="Porsche" ng-model="personModel.cars"> Porsche
-    </div>
-</div>-->
 <div class="row">
     <div class="col-md-2">
-        <button type="button" class="btn btn-success" ng-click="personForm.addPerson()">Submit</button>
+        <button type="button" class="btn btn-success" ng-click="personForm.addPerson()" ng-click=" carForm.addCar()">Submit</button>
     </div>
 </div>
 <hr>

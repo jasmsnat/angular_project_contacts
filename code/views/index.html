@@ -3,13 +3,16 @@
     <head>
         <title>Contact Info</title>
         <link rel='stylesheet' href="/node_modules/bootstrap/dist/css/bootstrap.css">
+        <style>
+            label {
+                cursor: pointer;
+            }
+        </style>
     </head>
-    <body ng-app="appContacts">
-        
-        <h3>Contact Info</h3>
-        
+    <body ng-app="appContacts">        
+        <h1>Contact Info</h1>
         <person-form></person-form>
-        <person-table></person-table>
+        <person-table></person-table>        
     
         <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
         <script type="text/javascript" src="/code/scripts/app.js"></script>
