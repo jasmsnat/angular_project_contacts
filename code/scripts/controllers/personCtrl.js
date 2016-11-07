@@ -1,14 +1,14 @@
 'use strict';
-angular.module('appContacts')
-    .controller('personCtrl', ['$scope', function($scope){
+angular.module("appContacts")
+    .controller("personCtrl",["$scope", "personService", function($scope, personService){
     
         $scope.personModel = {
-            entryNum: "1",
+//            entryNum: "",
             firstName:"",
             lastName:"",
             phoneNumber:"",
             state:"",
-            gender:"",
+            gender:""
         };
                 
         /*$scope.personModel.firstName = "";
@@ -17,7 +17,7 @@ angular.module('appContacts')
         $scope.personModel.state = "";
         $scope.personModel.gender = "";*/
         
-        $scope.personArray = [/*
+        /*$scope.personArray = [
             {
                 firstName:"Sterling",
                 lastName:"Archer",
@@ -54,9 +54,9 @@ angular.module('appContacts')
                 state: "NY",
                 gender: "male"
             }
-        */];
+        ];*/
         
-        $scope.personForm = {
+        /*$scope.personForm = {
             addPerson:function() {
                 var personObj = {
                     entryNum: $scope.personModel.entryNum,
@@ -69,7 +69,10 @@ angular.module('appContacts')
                 $scope.personArray.push(personObj);
                 $scope.personModel.entryNum++;
             }
-        }
+        }*/
+        
+        personService.personObj = $scope.personModel;
+        $scope.personArray = personService.personArray;
         
         $scope.personToggle = {
             sortBy: 'firstName',
@@ -82,6 +85,10 @@ angular.module('appContacts')
                     $scope.personToggle.sortOrder = !$scope.personToggle.sortOrder;
                 }
             }
-        }
+        };
+        
+        $scope.personForm = { 
+            addPerson: personService.addPerson
+        };
         
     }]);
