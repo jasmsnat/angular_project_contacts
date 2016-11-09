@@ -2,7 +2,7 @@
 angular.module("appContacts").service("personService", [function(){
     //remember, service does not have a scope variable
     this.personObj = {
-//        entryNum: "",
+        entryNum: "",
         firstName:"",
         lastName:"",
         phoneNumber:"",
@@ -25,7 +25,7 @@ angular.module("appContacts").service("personService", [function(){
     
     function addPerson() {
         var newPersonObj = {
-//            entryNum: that.personObj.entryNum,
+            entryNum: that.personObj.entryNum,
             firstName: that.personObj.firstName,
             lastName: that.personObj.lastName,
             phoneNumber: that.personObj.phoneNumber,
@@ -33,6 +33,6 @@ angular.module("appContacts").service("personService", [function(){
             gender: that.personObj.gender
         }
         that.personArray.push(newPersonObj);
-//        that.personObj.entryNum++;
+        that.personObj.entryNum++;
     }
 }]);

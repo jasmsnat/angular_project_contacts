@@ -19,16 +19,16 @@
     <div class="col-md-2">
         <label>Phone No.</label>
     </div>
-    <div class="col-md-1">
+    <div class="col-md-2">
         <label ng-click="personToggle.toggleColumn('state')">State</label>
     </div>
-    <div class="col-md-1">
+    <div class="col-md-2">
         <label ng-click="personToggle.toggleColumn('gender')">Gender</label>
     </div>
 </div>
 <div class="row" ng-repeat="person in personArray | filter:search | orderBy:personToggle.sortBy:personToggle.sortOrder">
     <div class="col-md-1">
-        <button type="button" class="btn btn-info">Edit</button>
+        <button type="button" class="btn btn-info" value="{{person.entryNum}}">Edit</button>
     </div>
     <!--<div class="col-md-1">
         {{person.entryNum}}
@@ -42,10 +42,10 @@
     <div class="col-md-2">
         {{person.phoneNumber}}
     </div>
-    <div class="col-md-1">
+    <div class="col-md-2">
         {{person.state}}
     </div>
-    <div class="col-md-1">
+    <div class="col-md-2">
         {{person.gender}}
     </div>
 </div>

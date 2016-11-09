@@ -3,7 +3,7 @@ angular.module("appContacts")
     .controller("personCtrl",["$scope", "personService", function($scope, personService){
     
         $scope.personModel = {
-//            entryNum: "",
+            entryNum: "0",
             firstName:"",
             lastName:"",
             phoneNumber:"",
