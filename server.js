@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var connection = require('express-myconnection');
 var basePath = "/service";
-
 var app = express();
 
 app.use(bodyParser.json()); //supports json-encoded bodies

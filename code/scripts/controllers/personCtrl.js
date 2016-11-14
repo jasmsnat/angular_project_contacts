@@ -3,12 +3,23 @@ angular.module("appContacts")
     .controller("personCtrl",["$scope", "personService", function($scope, personService){
     
         $scope.personModel = {
-            entryNum: "0",
+            personInfoId: "",
             firstName:"",
             lastName:"",
             phoneNumber:"",
             state:"",
-            gender:""
+            gender:"",
+            email: ""
+        };
+        
+        $scope.personEditModel = {
+            personInfoId: "",
+            firstName:"",
+            lastName:"",
+            phoneNumber:"",
+            state:"",
+            gender:"",
+            email: ""
         };
                 
         /*$scope.personModel.firstName = "";
@@ -72,7 +83,9 @@ angular.module("appContacts")
         }*/
         
         personService.personObj = $scope.personModel;
-        $scope.personArray = personService.personArray;
+//        $scope.personArray = personService.personArray;
+        $scope.personArray = [];
+        updatePersonList();
         
         $scope.personToggle = {
             sortBy: 'firstName',
@@ -88,7 +101,48 @@ angular.module("appContacts")
         };
         
         $scope.personForm = { 
-            addPerson: personService.addPerson
+//            addPerson: personService.addPerson
+            addPerson: function() { //adds to database table
+                personService.addPerson().then(function() {
+                    updatePersonList();
+                    reset();
+                });
+            },
+            deletePerson: function(id) { //deletes from database table
+                personService.deletePersonList(id).then(function() {
+                    updatePersonList();
+                });
+            },
+            editPerson: function(editObj) { //displays in edit boxes
+                console.log(editObj);
+                $scope.personEditModel = editObj;
+            },
+            updatePerson: function(updateObj) {
+                console.log(updateObj);
+                personService.putPersonList(updateObj).then(function() {
+                    updatePersonList();
+                    resetEdit();
+                });
+            }
         };
+        
+        function updatePersonList() {
+            var personListPromise = personService.getPersonList();
+            personListPromise.then(function(response) {
+                $scope.personArray = response;
+            });
+        }
+        
+        $scope.resetPersonModel = {};
+        function reset() {
+            $scope.personModel = angular.copy($scope.resetPersonModel);
+            personService.personObj = $scope.personModel;
+        }
+        
+        $scope.resetPersonEditModel = {};
+        function resetEdit() {
+            $scope.personEditModel = angular.copy($scope.resetPersonEditModel);
+            personService.personObj = $scope.personEditModel;
+        }
         
     }]);

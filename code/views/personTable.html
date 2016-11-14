@@ -4,48 +4,52 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
         <!--empty slot for edit buttons-->
     </div>
-    <!--<div class="col-md-1">
-        <label ng-click="personToggle.toggleColumn('entryNum')">Entry No.</label>
-    </div>-->
     <div class="col-md-2">
-        <label ng-click="personToggle.toggleColumn('firstName')">First Name</label>
+        <label ng-click="personToggle.toggleColumn('firstname')">First Name</label>
     </div>
     <div class="col-md-2">
-        <label ng-click="personToggle.toggleColumn('lastName')">Last Name</label>
+        <label ng-click="personToggle.toggleColumn('lastname')">Last Name</label>
     </div>
     <div class="col-md-2">
-        <label>Phone No.</label>
+        <label ng-click="personToggle.toggleColumn('phone')">Phone No.</label>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
         <label ng-click="personToggle.toggleColumn('state')">State</label>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
         <label ng-click="personToggle.toggleColumn('gender')">Gender</label>
+    </div>
+    <div class="col-md-2">
+        <label ng-click="personToggle.toggleColumn('email')">Email</label>
     </div>
 </div>
 <div class="row" ng-repeat="person in personArray | filter:search | orderBy:personToggle.sortBy:personToggle.sortOrder">
-    <div class="col-md-1">
-        <button type="button" class="btn btn-info" value="{{person.entryNum}}">Edit</button>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-info" ng-click="personForm.editPerson(person)">Edit</button>
+        <button type="button" class="btn btn-danger" ng-click="personForm.deletePerson(person.personinfoid)">Delete</button>
     </div>
     <!--<div class="col-md-1">
         {{person.entryNum}}
     </div>-->
     <div class="col-md-2">
-        {{person.firstName}}
+        {{person.firstname}}
     </div>
     <div class="col-md-2">
-        {{person.lastName}}
+        {{person.lastname}}
     </div>
     <div class="col-md-2">
-        {{person.phoneNumber}}
+        {{person.phone}}
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
         {{person.state}}
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
         {{person.gender}}
+    </div>
+    <div class="col-md-2">
+        {{person.email}}
     </div>
 </div>

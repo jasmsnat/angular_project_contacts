@@ -14,3 +14,11 @@ CREATE TABLE `personrepository`.`personinfo` (
 
 ALTER TABLE `personrepository`.`personinfo` 
 CHANGE COLUMN `phone` `phone` VARCHAR(10) NULL DEFAULT NULL ;
+
+ALTER TABLE `personrepository`.`personinfo` 
+ADD COLUMN `gender` VARCHAR(6) NULL DEFAULT NULL AFTER `email`;
+
+ALTER TABLE `personrepository`.`personinfo` 
+DROP COLUMN `address`,
+CHANGE COLUMN `gender` `gender` VARCHAR(6) NULL DEFAULT NULL AFTER `state`,
+ADD COLUMN `state` VARCHAR(2) NULL DEFAULT NULL AFTER `phone`;

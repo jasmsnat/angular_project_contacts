@@ -3,7 +3,7 @@
         <label>First Name:</label>
     </div>
     <div class="col-md-2">
-        <input type="text" class="form-control" ng-model="personModel.firstName" placeholder="Enter First Name">
+        <input type="text" class="form-control" ng-model="personEditModel.firstname" placeholder="Enter First Name">
     </div>
 </div>
 <div class="row">
@@ -11,7 +11,7 @@
         <label>Last Name:</label>
     </div>
     <div class="col-md-2">
-        <input type="text" class="form-control" ng-model="personModel.lastName" placeholder="Enter Last Name">
+        <input type="text" class="form-control" ng-model="personEditModel.lastname" placeholder="Enter Last Name">
     </div>
 </div>
 <div class="row">
@@ -19,7 +19,7 @@
         <label>Phone Number:</label>
     </div>
     <div class="col-md-2">
-        <input type="text" class="form-control" ng-model="personModel.phoneNumber" placeholder="Enter Phone Number">
+        <input type="text" class="form-control" ng-model="personEditModel.phone" placeholder="Enter Phone Number">
     </div>
 </div>
 <div class="row">
@@ -27,7 +27,7 @@
         <label>State</label>
     </div>
     <div class="col-md-2">
-        <select name="state" class="form-control" ng-model="personModel.state">
+        <select name="state" class="form-control" ng-model="personEditModel.state">
             <option value="" selected disabled>Select a State</option>
             <option value="AL">AL</option>
             <option value="AK">AK</option>
@@ -88,8 +88,8 @@
         <label>Gender</label>
     </div>
     <div class="col-md-2">
-        <input type="radio" value="Male" ng-model="personModel.gender"> Male
-        <input type="radio" value="Female" ng-model="personModel.gender"> Female
+        <input type="radio" value="Male" ng-model="personEditModel.gender"> Male
+        <input type="radio" value="Female" ng-model="personEditModel.gender"> Female
     </div>
 </div>
 <div class="row">
@@ -97,12 +97,12 @@
         <label>Email</label>
     </div>
     <div class="col-md-2">
-        <input type="email" class="form-control" ng-model="personModel.email" placeholder="Enter Email Address">
+        <input type="email" class="form-control" ng-model="personEditModel.email" placeholder="Enter Email Address">
     </div>
 </div>
 <div class="row">
     <div class="col-md-2">
-        <button type="button" class="btn btn-success" ng-click="personForm.addPerson()">Submit</button>
+        <button type="button" class="btn btn-success" ng-click="personForm.updatePerson(personEditModel)">Update</button>
     </div>
 </div>
 <hr>
